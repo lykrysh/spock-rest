@@ -1,1 +1,1 @@
-# spock-rest
+https://www.spock.li/tutorials/rest-api
