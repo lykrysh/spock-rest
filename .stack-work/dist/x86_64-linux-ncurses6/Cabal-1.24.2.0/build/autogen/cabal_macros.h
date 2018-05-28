@@ -28,6 +28,34 @@
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 1)
 
+/* package monad-logger-0.3.23 */
+#define VERSION_monad_logger "0.3.23"
+#define MIN_VERSION_monad_logger(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  3 || \
+  (major1) == 0 && (major2) == 3 && (minor) <= 23)
+
+/* package persistent-2.6.1 */
+#define VERSION_persistent "2.6.1"
+#define MIN_VERSION_persistent(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  6 || \
+  (major1) == 2 && (major2) == 6 && (minor) <= 1)
+
+/* package persistent-sqlite-2.6.2 */
+#define VERSION_persistent_sqlite "2.6.2"
+#define MIN_VERSION_persistent_sqlite(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  6 || \
+  (major1) == 2 && (major2) == 6 && (minor) <= 2)
+
+/* package persistent-template-2.5.2 */
+#define VERSION_persistent_template "2.5.2"
+#define MIN_VERSION_persistent_template(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  5 || \
+  (major1) == 2 && (major2) == 5 && (minor) <= 2)
+
 /* package text-1.2.2.1 */
 #define VERSION_text "1.2.2.1"
 #define MIN_VERSION_text(major1,major2,minor) (\
