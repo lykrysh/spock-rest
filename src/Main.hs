@@ -19,6 +19,19 @@ data Person = Person
 instance ToJSON Person
 instance FromJSON Person
 
+type Api = SpockM () () () ()
+type ApiAction a = SpockAction () () () a
+
 main :: IO ()
 main = do
-  putStrLn "hello world"
+  spockCfg <- defaultSpockCfg () PCNoDatabase ()
+  runSpock 8080 (spock spockCfg app)
+
+app :: Api
+app = do
+  get "people" $ do
+    json $ Person { name = "Fry", age = 25 }
+  post "people" $ do
+    thePerson <- jsonBody' :: ApiAction Person
+    text $ "Parsed: " <> pack (show thePerson)
+

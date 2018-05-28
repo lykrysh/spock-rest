@@ -1,18 +1,21 @@
 
 ==================== FINAL INTERFACE ====================
-2018-05-28 10:46:40.573121201 UTC
+2018-05-28 13:11:27.813657512 UTC
 
 interface main@main:Main [family instance module] 8002
-  interface hash: f5a179ce07427b79bbdd11dfffc341c1
-  ABI hash: 307f5b1c28a3779d5381dc331cbddbb6
-  export-list hash: 3afbddaf789e63f2ae375952276ed998
-  orphan hash: 2eb46f526b597bbd3fa994928c6af370
+  interface hash: 1f2615f45017dc429c7c6beab51d3c46
+  ABI hash: 0a89dc23fb91889cfb65d999eb37615b
+  export-list hash: c89bad231f1c1a4c2d476ab68518b04c
+  orphan hash: 7eccdeb70b59e38bfb72cf9929d7ef74
   flag hash: 2b14702ec816489c3b44cb6faef2108c
   sig of: Nothing
   used TH splices: False
   where
 exports:
+  Main.app
   Main.main
+  Main.Api
+  Main.ApiAction
   Main.Person{Main.Person age name}
 module dependencies:
 package dependencies: Spock-0.12.0.0@Spock-0.12.0.0-I3MdRJCm0P412zcnC95V3k
@@ -170,6 +173,9 @@ family instance modules: Spock-0.12.0.0@Spock-0.12.0.0-I3MdRJCm0P412zcnC95V3k:We
                          vector-0.11.0.0@vector-0.11.0.0-CSVBj3oTK2iCG5BGLIuhef:Data.Vector.Unboxed.Base
 import  -/  Spock-0.12.0.0@Spock-0.12.0.0-I3MdRJCm0P412zcnC95V3k:Web.Spock 21ff382f3370d0609dea89a81c28bfbe
 import  -/  Spock-0.12.0.0@Spock-0.12.0.0-I3MdRJCm0P412zcnC95V3k:Web.Spock.Config 0701299c50aeade4bd5e45be6c21e8b9
+import  -/  Spock-0.12.0.0@Spock-0.12.0.0-I3MdRJCm0P412zcnC95V3k:Web.Spock.Internal.Types 2eee26b0c2bff1568146c8b4543786fc
+import  -/  Spock-core-0.12.0.0@Spock-core-0.12.0.0-3TV57kMr235Ck76uYc7Qpo:Web.Spock.Core 3c34b6da411104a1f211f8bd2e6a8580
+import  -/  Spock-core-0.12.0.0@Spock-core-0.12.0.0-3TV57kMr235Ck76uYc7Qpo:Web.Spock.Internal.CoreAction 45e5021329efa233b7b4236158c11686
 import  -/  aeson-1.0.2.1@aeson-1.0.2.1-AIAnumTyITJ5rDkKPhkNE8:Data.Aeson 3078f87c75417fcd9ee74b1127b970c6
 import  -/  aeson-1.0.2.1@aeson-1.0.2.1-AIAnumTyITJ5rDkKPhkNE8:Data.Aeson.Types.FromJSON 02c508960a6584b9f75c132b00a95716
 import  -/  aeson-1.0.2.1@aeson-1.0.2.1-AIAnumTyITJ5rDkKPhkNE8:Data.Aeson.Types.ToJSON 865ef1dfe8f2567aea7f4b650c19fe65
@@ -178,7 +184,6 @@ import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
 import  -/  base-4.9.1.0:GHC.Generics 1dbec2bc7dd1c5bd8c89ed857eaed19b
 import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
 import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
-import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
 import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
 import  -/  text-1.2.2.1@text-1.2.2.1-6f2qEpRAAWiBgrajQZSQzB:Data.Text df4d671efaa2865b25c4845fb545d676
@@ -1543,6 +1548,73 @@ a0e53ff300d2eb45da1f53d2a44a18e6
                    GHC.Types.False
                    Data.Aeson.Types.Internal.defaultTaggedObject
                    GHC.Types.False) -}
+c8aad053cde2379875d3d261e9cd134a
+  $s$fMonadIOResourceT ::
+    Control.Monad.IO.Class.MonadIO
+      (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)
+                  Web.Spock.Internal.Monad.$fHasSpockt_$s$fMonadIOResourceT_$cp1MonadIO
+                  Main.$s$fMonadIOResourceT_$s$fMonadIOResourceT_$cliftIO -}
+fc7e8a5f285cf04cfb264e6229a0d6a0
+  $s$fMonadIOResourceT_$s$fMonadIOResourceT_$cliftIO ::
+    GHC.Types.IO a
+    -> Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (eta :: GHC.Types.IO a) ->
+                 let {
+                   eta1 :: GHC.Types.IO a = GHC.Base.id @ (GHC.Types.IO a) eta
+                 } in
+                 (\ (ds :: GHC.IORef.IORef
+                             Control.Monad.Trans.Resource.Internal.ReleaseMap) ->
+                  eta1)
+                   `cast`
+                 (Sym (Control.Monad.Trans.Resource.Internal.N:ResourceT[0]
+                           <GHC.Types.IO>_R <a>_N))) -}
+9ccc91208ce7e7709e26c2af36013346
+  $s$fMonadIOWebStateT ::
+    Control.Monad.IO.Class.MonadIO
+      (Web.Spock.Internal.Types.WebStateT
+         conn
+         sess
+         st
+         (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO))
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ conn @ sess @ st.
+                  @ (Web.Spock.Internal.Types.WebStateT
+                       conn
+                       sess
+                       st
+                       (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO))
+                  (Main.$s$fMonadIOWebStateT_$s$fMonadIOWebStateT_$cp1MonadIO
+                     @ conn
+                     @ sess
+                     @ st)
+                  (Web.Spock.Internal.Types.$fMonadIOWebStateT_$cliftIO
+                     @ conn
+                     @ sess
+                     @ st
+                     @ (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)
+                     Main.$s$fMonadIOWebStateT1) -}
+3cea2b0a9ccf2e5b7012a4f42225ac8d
+  $s$fMonadIOWebStateT1 ::
+    Control.Monad.IO.Class.MonadIO
+      (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True) Main.$s$fMonadIOResourceT -}
+2bcbfc1111b10d6e91d7d8114439f5e6
+  $s$fMonadIOWebStateT_$s$fMonadIOWebStateT_$cp1MonadIO ::
+    GHC.Base.Monad
+      (Web.Spock.Internal.Types.WebStateT
+         conn
+         sess
+         st
+         (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO))
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Web.Spock.Internal.Monad.$fHasSpockt_$s$fMonadWebStateT -}
 3638b10ba8b1c75d480457f85425a2cc
   $tc'Person :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1717,6 +1789,10 @@ d6374550e307427d840bea04780108bf
                            @ Data.Text.Internal.Text
                            @ Data.Aeson.Types.Internal.Value) of dt1 { DEFAULT ->
                  (# dt1 #) }) -}
+b2b230d861839ab4701af90019100804
+  type Api = Web.Spock.SpockM () () () ()
+ece874ffd49914379f868a7ee81da941
+  type ApiAction a = Web.Spock.Internal.Types.SpockAction () () () a
 a0e53ff300d2eb45da1f53d2a44a18e6
   data Person
     = Person {name :: Data.Text.Internal.Text, age :: GHC.Types.Int}
@@ -1749,27 +1825,770 @@ a0e53ff300d2eb45da1f53d2a44a18e6
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Main.Person) ->
                  case ds of wild { Main.Person ds1 ds2 -> ds2 }) -}
-549e997b77251cffa539541e3fca551d
+a39d5ef7cff23ca88ddca8b7802520d9
+  app :: Main.Api
+  {- Arity: 2,
+     Unfolding: InlineRule (0, True, True)
+                Main.app1
+                  `cast`
+                (Trans
+                     (Sym (Control.Monad.Trans.RWS.Strict.N:RWST[0]
+                               <Web.Routing.SafeRouting.PathInternal '[]>_R
+                               <[Network.Wai.Application -> Network.Wai.Application]>_N
+                               <Web.Routing.Router.RegistryState
+                                  (Web.Spock.Internal.Wire.ActionCtxT
+                                     ()
+                                     (Web.Spock.Internal.Types.WebStateT
+                                        ()
+                                        ()
+                                        ()
+                                        (Control.Monad.Trans.Resource.Internal.ResourceT
+                                           GHC.Types.IO)))
+                                  ()
+                                  Web.Spock.Internal.Wire.SpockMethod>_N
+                               <Control.Monad.Trans.Reader.ReaderT
+                                  (Web.Spock.Core.LiftHooked
+                                     ()
+                                     (Web.Spock.Internal.Types.WebStateT
+                                        ()
+                                        ()
+                                        ()
+                                        (Control.Monad.Trans.Resource.Internal.ResourceT
+                                           GHC.Types.IO)))
+                                  (Web.Spock.Internal.Types.WebStateT
+                                     ()
+                                     ()
+                                     ()
+                                     (Control.Monad.Trans.Resource.Internal.ResourceT
+                                        GHC.Types.IO))>_R
+                               <()>_N))
+                     (Trans
+                          (Sym (Web.Routing.Router.N:RegistryT[0]
+                                    <Web.Spock.Internal.Wire.ActionCtxT
+                                       ()
+                                       (Web.Spock.Internal.Types.WebStateT
+                                          ()
+                                          ()
+                                          ()
+                                          (Control.Monad.Trans.Resource.Internal.ResourceT
+                                             GHC.Types.IO))>_N
+                                    <()>_N
+                                    <Network.Wai.Application -> Network.Wai.Application>_N
+                                    <Web.Spock.Internal.Wire.SpockMethod>_N) <Control.Monad.Trans.Reader.ReaderT
+                                                                                (Web.Spock.Core.LiftHooked
+                                                                                   ()
+                                                                                   (Web.Spock.Internal.Types.WebStateT
+                                                                                      ()
+                                                                                      ()
+                                                                                      ()
+                                                                                      (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                         GHC.Types.IO)))
+                                                                                (Web.Spock.Internal.Types.WebStateT
+                                                                                   ()
+                                                                                   ()
+                                                                                   ()
+                                                                                   (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                      GHC.Types.IO))>_N)
+                          (Sym (Web.Spock.Core.N:SpockCtxT[0]
+                                    <()>_N
+                                    <Web.Spock.Internal.Types.WebStateT
+                                       ()
+                                       ()
+                                       ()
+                                       (Control.Monad.Trans.Resource.Internal.ResourceT
+                                          GHC.Types.IO)>_N)) <()>_N)) -}
+cb45eb8b4fed3aabe8a73f797c0fd5f5
+  app1 ::
+    Web.Routing.SafeRouting.PathInternal '[]
+    -> Web.Routing.Router.RegistryState
+         (Web.Spock.Internal.Wire.ActionCtxT
+            ()
+            (Web.Spock.Internal.Types.WebStateT
+               ()
+               ()
+               ()
+               (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)))
+         ()
+         Web.Spock.Internal.Wire.SpockMethod
+    -> Control.Monad.Trans.Reader.ReaderT
+         (Web.Spock.Core.LiftHooked
+            ()
+            (Web.Spock.Internal.Types.WebStateT
+               ()
+               ()
+               ()
+               (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)))
+         (Web.Spock.Internal.Types.WebStateT
+            ()
+            ()
+            ()
+            (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO))
+         ((),
+          Web.Routing.Router.RegistryState
+            (Web.Spock.Internal.Wire.ActionCtxT
+               ()
+               (Web.Spock.Internal.Types.WebStateT
+                  ()
+                  ()
+                  ()
+                  (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)))
+            ()
+            Web.Spock.Internal.Wire.SpockMethod,
+          [Network.Wai.Application -> Network.Wai.Application])
+  {- Arity: 2,
+     Unfolding: (Web.Spock.Core.$fMonadSpockCtxT3
+                   @ ()
+                   @ (Web.Spock.Internal.Types.WebStateT
+                        ()
+                        ()
+                        ()
+                        (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO))
+                   (Web.Spock.Internal.Monad.$fHasSpockt_$s$fMonadWebStateT
+                      @ ()
+                      @ ()
+                      @ ())
+                   @ ()
+                   @ ()
+                   Main.app7
+                     `cast`
+                   (Trans
+                        (Web.Spock.Core.N:SpockCtxT[0]
+                             <()>_N
+                             <Web.Spock.Internal.Types.WebStateT
+                                ()
+                                ()
+                                ()
+                                (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)>_N)
+                        (Web.Routing.Router.N:RegistryT[0]
+                             <Web.Spock.Internal.Wire.ActionCtxT
+                                ()
+                                (Web.Spock.Internal.Types.WebStateT
+                                   ()
+                                   ()
+                                   ()
+                                   (Control.Monad.Trans.Resource.Internal.ResourceT
+                                      GHC.Types.IO))>_N
+                             <()>_N
+                             <Network.Wai.Application -> Network.Wai.Application>_N
+                             <Web.Spock.Internal.Wire.SpockMethod>_N <Control.Monad.Trans.Reader.ReaderT
+                                                                        (Web.Spock.Core.LiftHooked
+                                                                           ()
+                                                                           (Web.Spock.Internal.Types.WebStateT
+                                                                              ()
+                                                                              ()
+                                                                              ()
+                                                                              (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                 GHC.Types.IO)))
+                                                                        (Web.Spock.Internal.Types.WebStateT
+                                                                           ()
+                                                                           ()
+                                                                           ()
+                                                                           (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                              GHC.Types.IO))>_N) <()>_N)
+                   Main.app2
+                     `cast`
+                   (Trans
+                        (Web.Spock.Core.N:SpockCtxT[0]
+                             <()>_N
+                             <Web.Spock.Internal.Types.WebStateT
+                                ()
+                                ()
+                                ()
+                                (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)>_N)
+                        (Web.Routing.Router.N:RegistryT[0]
+                             <Web.Spock.Internal.Wire.ActionCtxT
+                                ()
+                                (Web.Spock.Internal.Types.WebStateT
+                                   ()
+                                   ()
+                                   ()
+                                   (Control.Monad.Trans.Resource.Internal.ResourceT
+                                      GHC.Types.IO))>_N
+                             <()>_N
+                             <Network.Wai.Application -> Network.Wai.Application>_N
+                             <Web.Spock.Internal.Wire.SpockMethod>_N <Control.Monad.Trans.Reader.ReaderT
+                                                                        (Web.Spock.Core.LiftHooked
+                                                                           ()
+                                                                           (Web.Spock.Internal.Types.WebStateT
+                                                                              ()
+                                                                              ()
+                                                                              ()
+                                                                              (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                 GHC.Types.IO)))
+                                                                        (Web.Spock.Internal.Types.WebStateT
+                                                                           ()
+                                                                           ()
+                                                                           ()
+                                                                           (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                              GHC.Types.IO))>_N) <()>_N)) -}
+6b991ff56ca1e3755d9e895df0348bbd
+  app10 ::
+    [(Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)]
+  {- Unfolding: (Main.app14 Main.app11) -}
+3a56b919ec03c46d18683608643132be
+  app11 ::
+    [(Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)]
+  {- Unfolding: (Main.app12
+                   (GHC.Types.[] @ Data.Aeson.Types.Internal.Pair)) -}
+55b39c8d0c19d2e274b41d0dab0b2c88
+  app12 ::
+    [(Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)]
+    -> [(Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)]
+  {- Unfolding: (Data.Aeson.Types.ToJSON.$fRecordToPairsarityM2
+                   @ ('GHC.Generics.MetaSel
+                        ('GHC.Base.Just "age")
+                        'GHC.Generics.NoSourceUnpackedness
+                        'GHC.Generics.NoSourceStrictness
+                        'GHC.Generics.DecidedLazy)
+                   @ Data.Aeson.Types.Generic.Zero
+                   @ (GHC.Generics.K1 GHC.Generics.R GHC.Types.Int)
+                   Main.$fFromJSONPerson_$s$fSelectorMetaMetaSel
+                   Main.$fToJSONPerson2
+                     `cast`
+                   (Sym (Data.Aeson.Types.ToJSON.N:GToJSON[0]
+                             <Data.Aeson.Types.Generic.Zero>_N
+                             <GHC.Generics.K1 GHC.Generics.R GHC.Types.Int>_N))
+                   @ GHC.Prim.Any
+                   Main.$fToJSONPerson_w2
+                   (Data.Aeson.Types.ToJSON.$WNoToArgs
+                      @ Data.Aeson.Types.Internal.Value
+                      @ GHC.Prim.Any)
+                   Main.app13
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Generics.N:K1[0]
+                                  <GHC.Generics.R>_P <GHC.Types.Int>_R <GHC.Prim.Any>_P))
+                        (Sym (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.S>_P
+                                  <'GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "age")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.NoSourceStrictness
+                                     'GHC.Generics.DecidedLazy>_P
+                                  <GHC.Generics.K1
+                                     GHC.Generics.R GHC.Types.Int>_R) <GHC.Prim.Any>_N))) -}
+2fa688111864cae6117e89c20398e4b9
+  app13 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 25#) -}
+8fe17c4514b5b0fd0eb0cb8f609a7973
+  app14 ::
+    [(Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)]
+    -> [(Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)]
+  {- Unfolding: (Data.Aeson.Types.ToJSON.$fRecordToPairsarityM2
+                   @ ('GHC.Generics.MetaSel
+                        ('GHC.Base.Just "name")
+                        'GHC.Generics.NoSourceUnpackedness
+                        'GHC.Generics.NoSourceStrictness
+                        'GHC.Generics.DecidedLazy)
+                   @ Data.Aeson.Types.Generic.Zero
+                   @ (GHC.Generics.K1 GHC.Generics.R Data.Text.Internal.Text)
+                   Main.$fFromJSONPerson_$s$fSelectorMetaMetaSel1
+                   Main.$fToJSONPerson3
+                     `cast`
+                   (Sym (Data.Aeson.Types.ToJSON.N:GToJSON[0]
+                             <Data.Aeson.Types.Generic.Zero>_N
+                             <GHC.Generics.K1 GHC.Generics.R Data.Text.Internal.Text>_N))
+                   @ GHC.Prim.Any
+                   Main.$fToJSONPerson_w2
+                   (Data.Aeson.Types.ToJSON.$WNoToArgs
+                      @ Data.Aeson.Types.Internal.Value
+                      @ GHC.Prim.Any)
+                   Main.app15
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Generics.N:K1[0]
+                                  <GHC.Generics.R>_P <Data.Text.Internal.Text>_R <GHC.Prim.Any>_P))
+                        (Sym (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.S>_P
+                                  <'GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "name")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.NoSourceStrictness
+                                     'GHC.Generics.DecidedLazy>_P
+                                  <GHC.Generics.K1
+                                     GHC.Generics.R
+                                     Data.Text.Internal.Text>_R) <GHC.Prim.Any>_N))) -}
+6b530b6a6aaaf6656b22185be972ba68
+  app15 :: Data.Text.Internal.Text
+  {- Unfolding: (Data.Text.Show.unpackCString# "Fry"#) -}
+bc00d9e18410496e772fa407ef3de6cf
+  app16 ::
+    Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt ()
+  {- HasNoCafRefs,
+     Unfolding: (Data.Either.Left
+                   @ Web.Spock.Internal.Wire.ActionInterupt
+                   @ ()
+                   Web.Spock.Internal.Wire.ActionDone) -}
+a27efbde1491206b2c724692b57aba0b
+  app17 :: Data.ByteString.Internal.ByteString
+  {- Unfolding: (case Data.Text.Show.unpackCString#
+                        "application/json; charset=utf-8"# of ww { Data.Text.Internal.Text ww1 ww2 ww3 ->
+                 Data.Text.Encoding.$wencodeUtf8 ww1 ww2 ww3 }) -}
+55105e39cc4e2525a48d57713acdb78b
+  app18 ::
+    Data.CaseInsensitive.Internal.CI
+      Data.ByteString.Internal.ByteString
+  {- Unfolding: (case Data.Text.Show.unpackCString#
+                        "Content-Type"# of ww { Data.Text.Internal.Text ww1 ww2 ww3 ->
+                 case Data.Text.Encoding.$wencodeUtf8
+                        ww1
+                        ww2
+                        ww3 of dt { Data.ByteString.Internal.PS ipv ipv1 ipv2 ipv3 ->
+                 case Data.CaseInsensitive.Internal.$wfoldCaseBS
+                        ipv
+                        ipv1
+                        ipv2
+                        ipv3 of dt1 { Data.ByteString.Internal.PS ipv4 ipv5 ipv6 ipv7 ->
+                 Data.CaseInsensitive.Internal.CI
+                   @ Data.ByteString.Internal.ByteString
+                   dt
+                   dt1 } } }) -}
+756178f123695367e32b47448abc1499
+  app19 :: Web.Spock.Internal.Wire.SpockMethod
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (Web.Spock.Internal.Wire.MethodStandard
+                   Network.HTTP.Types.Method.GET
+                     `cast`
+                   (Sym (Web.Spock.Internal.Wire.N:HttpMethod[0]))) -}
+9152876d70087c8c98899eda3ddd0a9d
+  app2 ::
+    Web.Spock.Core.SpockCtxT
+      () (Web.Spock.Internal.Types.WebStateM () () ()) ()
+  {- Unfolding: (Web.Spock.hookRoute'
+                   @ '[]
+                   @ 'Web.Routing.Combinators.Open
+                   @ ()
+                   @ ()
+                   @ ()
+                   @ ()
+                   Data.HVect.$WRNil `cast` (Sym (Data.HVect.N:HasRep[0]) <'[]>_N)
+                   Main.app6
+                   Main.app4
+                   Main.app3
+                     `cast`
+                   (Trans
+                        (<Web.Spock.Internal.Wire.RequestInfo ()>_R
+                         ->_R <Web.Spock.Internal.Wire.ResponseState>_R
+                         ->_R Trans
+                                  (<Web.Spock.Internal.Types.WebState () () ()>_R
+                                   ->_R Trans
+                                            (<GHC.IORef.IORef
+                                                Control.Monad.Trans.Resource.Internal.ReleaseMap>_R
+                                             ->_R Sym (GHC.Types.N:IO[0]
+                                                           <(Data.Either.Either
+                                                               Web.Spock.Internal.Wire.ActionInterupt
+                                                               (),
+                                                             Web.Spock.Internal.Wire.ResponseState,
+                                                             ())>_R))
+                                            (Sym (Control.Monad.Trans.Resource.Internal.N:ResourceT[0]
+                                                      <GHC.Types.IO>_R
+                                                      <(Data.Either.Either
+                                                          Web.Spock.Internal.Wire.ActionInterupt (),
+                                                        Web.Spock.Internal.Wire.ResponseState,
+                                                        ())>_N)))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                 <*>_N
+                                                 <Web.Spock.Internal.Types.WebState () () ()>_R
+                                                 <Control.Monad.Trans.Resource.Internal.ResourceT
+                                                    GHC.Types.IO>_R
+                                                 <(Data.Either.Either
+                                                     Web.Spock.Internal.Wire.ActionInterupt (),
+                                                   Web.Spock.Internal.Wire.ResponseState, ())>_N))
+                                       (Sym (Web.Spock.Internal.Types.N:WebStateT[0]
+                                                 <()>_N
+                                                 <()>_N
+                                                 <()>_N) <Control.Monad.Trans.Resource.Internal.ResourceT
+                                                            GHC.Types.IO>_N <(Data.Either.Either
+                                                                                Web.Spock.Internal.Wire.ActionInterupt
+                                                                                (),
+                                                                              Web.Spock.Internal.Wire.ResponseState,
+                                                                              ())>_N)))
+                        (Trans
+                             (Sym (Control.Monad.Trans.RWS.Strict.N:RWST[0]
+                                       <Web.Spock.Internal.Wire.RequestInfo ()>_R
+                                       <()>_N
+                                       <Web.Spock.Internal.Wire.ResponseState>_N
+                                       <Web.Spock.Internal.Types.WebStateT
+                                          ()
+                                          ()
+                                          ()
+                                          (Control.Monad.Trans.Resource.Internal.ResourceT
+                                             GHC.Types.IO)>_R
+                                       <Data.Either.Either
+                                          Web.Spock.Internal.Wire.ActionInterupt ()>_N))
+                             (Trans
+                                  (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                            <Web.Spock.Internal.Wire.ActionInterupt>_N
+                                            <Control.Monad.Trans.RWS.Strict.RWST
+                                               (Web.Spock.Internal.Wire.RequestInfo ())
+                                               ()
+                                               Web.Spock.Internal.Wire.ResponseState
+                                               (Web.Spock.Internal.Types.WebStateT
+                                                  ()
+                                                  ()
+                                                  ()
+                                                  (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                     GHC.Types.IO))>_R
+                                            <()>_N))
+                                  (Trans
+                                       (Sym (Web.Spock.Internal.Wire.N:ActionCtxT[0]
+                                                 <()>_N
+                                                 <Web.Spock.Internal.Types.WebStateT
+                                                    ()
+                                                    ()
+                                                    ()
+                                                    (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                       GHC.Types.IO)>_N) <()>_N)
+                                       (Sub (Sym (Data.HVect.D:R:HVectElim[0]
+                                                      <Web.Spock.Internal.Wire.ActionCtxT
+                                                         ()
+                                                         (Web.Spock.Internal.Types.WebStateM
+                                                            () () ())
+                                                         ()>_N)))))))) -}
+e11456b784275530e5de47cf0b9febf6
+  app3 ::
+    Web.Spock.Internal.Wire.RequestInfo ()
+    -> Web.Spock.Internal.Wire.ResponseState
+    -> Web.Spock.Internal.Types.WebState () () ()
+    -> GHC.IORef.IORef Control.Monad.Trans.Resource.Internal.ReleaseMap
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+           Web.Spock.Internal.Wire.ResponseState, ()) #)
+  {- Arity: 5 -}
+02413973861c037f236e6a8f72edbdc1
+  app4 ::
+    Web.Routing.Combinators.Path '[] 'Web.Routing.Combinators.Open
+  {- Unfolding: (Web.Routing.Combinators.static Main.app5) -}
+8d39bd0270746c81217fa08201cfb012
+  app5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "people"#) -}
+895e5ec18025637c9a48aad678bfc312
+  app6 :: Web.Spock.Internal.Wire.SpockMethod
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (Web.Spock.Internal.Wire.MethodStandard
+                   Network.HTTP.Types.Method.POST
+                     `cast`
+                   (Sym (Web.Spock.Internal.Wire.N:HttpMethod[0]))) -}
+4874040a6af965f7be3347eaae3f3c6a
+  app7 ::
+    Web.Spock.Core.SpockCtxT
+      () (Web.Spock.Internal.Types.WebStateM () () ()) ()
+  {- Unfolding: (Web.Spock.hookRoute'
+                   @ '[]
+                   @ 'Web.Routing.Combinators.Open
+                   @ ()
+                   @ ()
+                   @ ()
+                   @ ()
+                   Data.HVect.$WRNil `cast` (Sym (Data.HVect.N:HasRep[0]) <'[]>_N)
+                   Main.app19
+                   Main.app4
+                   Main.app8
+                     `cast`
+                   (Trans
+                        (Sym (Control.Monad.Trans.RWS.Strict.N:RWST[0]
+                                  <Web.Spock.Internal.Wire.RequestInfo ()>_R
+                                  <()>_N
+                                  <Web.Spock.Internal.Wire.ResponseState>_N
+                                  <Web.Spock.Internal.Types.WebStateM () () ()>_R
+                                  <Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt ()>_N))
+                        (Trans
+                             (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                       <Web.Spock.Internal.Wire.ActionInterupt>_N
+                                       <Control.Monad.Trans.RWS.Strict.RWST
+                                          (Web.Spock.Internal.Wire.RequestInfo ())
+                                          ()
+                                          Web.Spock.Internal.Wire.ResponseState
+                                          (Web.Spock.Internal.Types.WebStateM () () ())>_R
+                                       <()>_N))
+                             (Trans
+                                  (Sym (Web.Spock.Internal.Wire.N:ActionCtxT[0]
+                                            <()>_N
+                                            <Web.Spock.Internal.Types.WebStateM () () ()>_N) <()>_N)
+                                  (Sub (Sym (Data.HVect.D:R:HVectElim[0]
+                                                 <Web.Spock.Internal.Wire.ActionCtxT
+                                                    ()
+                                                    (Web.Spock.Internal.Types.WebStateM () () ())
+                                                    ()>_N))))))) -}
+1fd33a24b5a06b5f0dcc6ebc7a6f5759
+  app8 ::
+    Web.Spock.Internal.Wire.RequestInfo ()
+    -> Web.Spock.Internal.Wire.ResponseState
+    -> Web.Spock.Internal.Types.WebStateT
+         ()
+         ()
+         ()
+         (Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO)
+         (Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+          Web.Spock.Internal.Wire.ResponseState, ())
+  {- Arity: 2,
+     Unfolding: (\ (r1 :: Web.Spock.Internal.Wire.RequestInfo ())
+                   (s1 :: Web.Spock.Internal.Wire.ResponseState) ->
+                 let {
+                   eta :: Web.Spock.Internal.Types.WebStateM
+                            ()
+                            ()
+                            ()
+                            (Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+                             Web.Spock.Internal.Wire.ResponseState, ())
+                   = Web.Spock.Internal.CoreAction.$wsetRawHeaderUnsafe
+                       @ (Web.Spock.Internal.Types.WebStateM () () ())
+                       @ ()
+                       (Main.$s$fMonadIOWebStateT @ () @ () @ ())
+                       Main.app18
+                       Main.app17
+                       s1
+                 } in
+                 (\ (eta2 :: Web.Spock.Internal.Types.WebState () () ()) ->
+                  let {
+                    ds :: Control.Monad.Trans.Resource.Internal.ResourceT
+                            GHC.Types.IO
+                            (Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+                             Web.Spock.Internal.Wire.ResponseState, ())
+                    = eta
+                        `cast`
+                      (Trans
+                           (Web.Spock.Internal.Types.N:WebStateT[0]
+                                <()>_N
+                                <()>_N
+                                <()>_N <Control.Monad.Trans.Resource.Internal.ResourceT
+                                          GHC.Types.IO>_N <(Data.Either.Either
+                                                              Web.Spock.Internal.Wire.ActionInterupt
+                                                              (),
+                                                            Web.Spock.Internal.Wire.ResponseState,
+                                                            ())>_N)
+                           (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                <*>_N
+                                <Web.Spock.Internal.Types.WebState () () ()>_R
+                                <Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO>_R
+                                <(Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+                                  Web.Spock.Internal.Wire.ResponseState, ())>_N))
+                        eta2
+                  } in
+                  (\ (r :: GHC.IORef.IORef
+                             Control.Monad.Trans.Resource.Internal.ReleaseMap)
+                     (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                   case (ds
+                           `cast`
+                         (Control.Monad.Trans.Resource.Internal.N:ResourceT[0]
+                              <GHC.Types.IO>_R
+                              <(Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+                                Web.Spock.Internal.Wire.ResponseState, ())>_N)
+                           r)
+                          `cast`
+                        (GHC.Types.N:IO[0]
+                             <(Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+                               Web.Spock.Internal.Wire.ResponseState, ())>_R)
+                          s of ds1 { (#,#) ipv ipv1 ->
+                   case ipv1 of wild { (,,) a1 s' w1 ->
+                   case a1 of wild1 {
+                     Data.Either.Left e1 -> (# ipv, (wild1, s', GHC.Tuple.()) #)
+                     Data.Either.Right x
+                     -> (# ipv,
+                           (Main.app16,
+                            case s' of wild2 { Web.Spock.Internal.Wire.ResponseState ds2 ds3 ds4 ds5 ->
+                            Web.Spock.Internal.Wire.ResponseState
+                              ds2
+                              ds3
+                              ds4
+                              Main.app_val2
+                                `cast`
+                              (Sym (Web.Spock.Internal.Wire.N:ResponseBody[0])) },
+                            GHC.Tuple.()) #) } } })
+                    `cast`
+                  (Trans
+                       (<GHC.IORef.IORef
+                           Control.Monad.Trans.Resource.Internal.ReleaseMap>_R
+                        ->_R Sym (GHC.Types.N:IO[0]
+                                      <(Data.Either.Either
+                                          Web.Spock.Internal.Wire.ActionInterupt (),
+                                        Web.Spock.Internal.Wire.ResponseState, ())>_R))
+                       (Sym (Control.Monad.Trans.Resource.Internal.N:ResourceT[0]
+                                 <GHC.Types.IO>_R
+                                 <(Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+                                   Web.Spock.Internal.Wire.ResponseState, ())>_N))))
+                   `cast`
+                 (Trans
+                      (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                <*>_N
+                                <Web.Spock.Internal.Types.WebState () () ()>_R
+                                <Control.Monad.Trans.Resource.Internal.ResourceT GHC.Types.IO>_R
+                                <(Data.Either.Either Web.Spock.Internal.Wire.ActionInterupt (),
+                                  Web.Spock.Internal.Wire.ResponseState, ())>_N))
+                      (Sym (Web.Spock.Internal.Types.N:WebStateT[0]
+                                <()>_N
+                                <()>_N
+                                <()>_N) <Control.Monad.Trans.Resource.Internal.ResourceT
+                                           GHC.Types.IO>_N <(Data.Either.Either
+                                                               Web.Spock.Internal.Wire.ActionInterupt
+                                                               (),
+                                                             Web.Spock.Internal.Wire.ResponseState,
+                                                             ())>_N))) -}
+b74df121ccc0215d265083c8c08d5666
+  app9 :: Data.ByteString.Builder.Internal.Builder
+  {- Unfolding: (case Data.Aeson.Types.Internal.$sfromList1
+                        @ Data.Aeson.Types.Internal.Value
+                        Main.app10
+                        (Data.HashMap.Base.Empty
+                           @ Data.Text.Internal.Text
+                           @ Data.Aeson.Types.Internal.Value) of dt1 { DEFAULT ->
+                 Data.Aeson.Encoding.Builder.encodeToBuilder
+                   (Data.Aeson.Types.Internal.Object dt1) }) -}
+ffef894b08af406759b8c1cb0bb3bf8f
+  app_val1 :: Data.ByteString.Lazy.Internal.ByteString
+  {- Unfolding: (Data.ByteString.Builder.toLazyByteString
+                   Main.app9) -}
+eb90a2822fde85f7c72bc16b85b22748
+  app_val2 ::
+    Network.HTTP.Types.Status.Status
+    -> Network.HTTP.Types.Header.ResponseHeaders
+    -> Network.Wai.Internal.Response
+  {- Arity: 2, Strictness: <L,U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (status :: Network.HTTP.Types.Status.Status)
+                   (headers :: Network.HTTP.Types.Header.ResponseHeaders) ->
+                 Network.Wai.responseLBS status headers Main.app_val1) -}
+61ce3dd0deee27d11d9d5f57551c8501
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-12f13e20d189575a2f38fa0188d46990
+0ed526fee81ad49ac77769dd749d0bac
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (eta :: GHC.Prim.State#
-                             GHC.Prim.RealWorld)[OneShot] ->
-                 GHC.IO.Handle.Text.hPutStr2
-                   GHC.IO.Handle.FD.stdout
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.atomically#
+                        @ (Web.Spock.Internal.SessionVault.SessionVault
+                             (Web.Spock.Internal.Types.Session () () ()))
+                        (Web.Spock.Internal.SessionVault.newSessionVault1
+                           @ (Web.Spock.Internal.Types.Session () () ()))
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case Web.Spock.Internal.SessionVault.newStmSessionStore2
+                        @ ()
+                        @ ()
+                        @ ()
+                        ipv1
+                        ipv of ds { (#,#) ipv2 ipv3 ->
+                 Web.Spock.Core.runSpock1
                    Main.main2
-                   GHC.Types.True
-                   eta) -}
-5ca9aae8b1fa510e4d7ba6c699a49ec7
-  main2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "hello world"#) -}
-eaf959ce78010a9f5591044b85b85e4b
+                   (\ (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                    Web.Spock.$wspock
+                      @ ()
+                      @ ()
+                      @ ()
+                      GHC.Tuple.()
+                      Web.Spock.Internal.Types.$WPCNoDatabase
+                      (Web.Spock.Internal.Types.SessionCfg
+                         @ ()
+                         @ ()
+                         @ ()
+                         Web.Spock.Config.defaultSessionCfg5
+                         Web.Spock.Config.defaultSessionCfg4
+                           `cast`
+                         (Trans
+                              (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                              (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0])))
+                         Web.Spock.Config.defaultSessionCfg3
+                         GHC.Types.True
+                         GHC.Tuple.()
+                         (Web.Spock.Internal.Types.SessionStoreInstance
+                            @ (Web.Spock.Internal.Types.Session () () ())
+                            @ GHC.Conc.Sync.STM
+                            GHC.Conc.Sync.$fMonadSTM
+                            GHC.Conc.Sync.$fFunctorSTM
+                            GHC.Conc.Sync.$fApplicativeSTM
+                            ipv3)
+                         Web.Spock.Config.defaultSessionCfg2
+                           `cast`
+                         (Trans
+                              (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                              (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0])))
+                         (Web.Spock.Config.defaultSessionHooks @ ()))
+                      Web.Spock.Config.defaultSpockCfg4
+                      Web.Spock.Config.errorHandler
+                      GHC.Types.False
+                      Web.Spock.Config.defaultSpockCfg3
+                      Web.Spock.Config.defaultSpockCfg2
+                      Main.app1
+                        `cast`
+                      (Trans
+                           (Sym (Control.Monad.Trans.RWS.Strict.N:RWST[0]
+                                     <Web.Routing.SafeRouting.PathInternal '[]>_R
+                                     <[Network.Wai.Application -> Network.Wai.Application]>_N
+                                     <Web.Routing.Router.RegistryState
+                                        (Web.Spock.Internal.Wire.ActionCtxT
+                                           ()
+                                           (Web.Spock.Internal.Types.WebStateT
+                                              ()
+                                              ()
+                                              ()
+                                              (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                 GHC.Types.IO)))
+                                        ()
+                                        Web.Spock.Internal.Wire.SpockMethod>_N
+                                     <Control.Monad.Trans.Reader.ReaderT
+                                        (Web.Spock.Core.LiftHooked
+                                           ()
+                                           (Web.Spock.Internal.Types.WebStateT
+                                              ()
+                                              ()
+                                              ()
+                                              (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                 GHC.Types.IO)))
+                                        (Web.Spock.Internal.Types.WebStateT
+                                           ()
+                                           ()
+                                           ()
+                                           (Control.Monad.Trans.Resource.Internal.ResourceT
+                                              GHC.Types.IO))>_R
+                                     <()>_N))
+                           (Trans
+                                (Sym (Web.Routing.Router.N:RegistryT[0]
+                                          <Web.Spock.Internal.Wire.ActionCtxT
+                                             ()
+                                             (Web.Spock.Internal.Types.WebStateT
+                                                ()
+                                                ()
+                                                ()
+                                                (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                   GHC.Types.IO))>_N
+                                          <()>_N
+                                          <Network.Wai.Application -> Network.Wai.Application>_N
+                                          <Web.Spock.Internal.Wire.SpockMethod>_N) <Control.Monad.Trans.Reader.ReaderT
+                                                                                      (Web.Spock.Core.LiftHooked
+                                                                                         ()
+                                                                                         (Web.Spock.Internal.Types.WebStateT
+                                                                                            ()
+                                                                                            ()
+                                                                                            ()
+                                                                                            (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                               GHC.Types.IO)))
+                                                                                      (Web.Spock.Internal.Types.WebStateT
+                                                                                         ()
+                                                                                         ()
+                                                                                         ()
+                                                                                         (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                            GHC.Types.IO))>_N)
+                                (Sym (Web.Spock.Core.N:SpockCtxT[0]
+                                          <()>_N
+                                          <Web.Spock.Internal.Types.WebStateT
+                                             ()
+                                             ()
+                                             ()
+                                             (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                GHC.Types.IO)>_N)) <()>_N))
+                      w2)
+                     `cast`
+                   (Sym (GHC.Types.N:IO[0] <Network.Wai.Middleware>_R))
+                   ipv2 } }) -}
+2d7fea50f5b65548d985c5e8e6e8a9b3
+  main2 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 8080#) -}
+0756267c62258fe0172e0984d70fb817
   main3 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -1791,6 +2610,45 @@ instance GHC.Show.Show [Main.Person] = Main.$fShowPerson
 instance Data.Aeson.Types.ToJSON.ToJSON [Main.Person]
   = Main.$fToJSONPerson
 family instance GHC.Generics.Rep [Main.Person] = Main.Rep_Person
+"SPEC/Main $fMonadIOResourceT @ IO" [ALWAYS] forall ($dMonadIO :: Control.Monad.IO.Class.MonadIO
+                                                                    GHC.Types.IO)
+  Control.Monad.Trans.Resource.Internal.$fMonadIOResourceT @ GHC.Types.IO
+                                                           $dMonadIO
+  = Main.$s$fMonadIOResourceT
+"SPEC/Main $fMonadIOResourceT_$cliftIO @ IO" [ALWAYS] forall ($dMonadIO :: Control.Monad.IO.Class.MonadIO
+                                                                             GHC.Types.IO)
+  Control.Monad.Trans.Resource.Internal.$fMonadIOResourceT_$cliftIO @ GHC.Types.IO
+                                                                    $dMonadIO
+  = Main.$s$fMonadIOResourceT_$s$fMonadIOResourceT_$cliftIO
+"SPEC/Main $fMonadIOWebStateT _ _ _ @ (ResourceT IO)" [ALWAYS] forall @ conn
+                                                                      @ sess
+                                                                      @ st
+                                                                      ($dMonadIO :: Control.Monad.IO.Class.MonadIO
+                                                                                      (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                         GHC.Types.IO))
+  Web.Spock.Internal.Types.$fMonadIOWebStateT @ conn
+                                              @ sess
+                                              @ st
+                                              @ (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                   GHC.Types.IO)
+                                              $dMonadIO
+  = Main.$s$fMonadIOWebStateT @ conn @ sess @ st
+"SPEC/Main $fMonadIOWebStateT_$cp1MonadIO _ _ _ @ (ResourceT IO)" [ALWAYS] forall @ conn
+                                                                                  @ sess
+                                                                                  @ st
+                                                                                  ($dMonadIO :: Control.Monad.IO.Class.MonadIO
+                                                                                                  (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                                                                     GHC.Types.IO))
+  Web.Spock.Internal.Types.$fMonadIOWebStateT_$cp1MonadIO @ conn
+                                                          @ sess
+                                                          @ st
+                                                          @ (Control.Monad.Trans.Resource.Internal.ResourceT
+                                                               GHC.Types.IO)
+                                                          $dMonadIO
+  = Main.$s$fMonadIOWebStateT_$s$fMonadIOWebStateT_$cp1MonadIO
+      @ conn
+      @ sess
+      @ st
 "SPEC/Main $fSelectorMetaMetaSel @ ('Just
                                      "age") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI3 :: GHC.Generics.SingI
                                                                                                                                                                                    'GHC.Generics.DecidedLazy)
